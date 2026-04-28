@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Export — SantéCollect</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-brand">
+      <span class="brand-icon">⚕</span>
+      <span class="brand-name">SantéCollect</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="formulaire.html">Formulaire</a></li>
+      <li><a href="dashboard.html">Tableau de bord</a></li>
+      <li><a href="export.html" class="active">Export</a></li>
+    </ul>
+    <button class="btn-nav-cta" onclick="window.location='formulaire.html'">+ Nouvelle fiche</button>
+  </nav>
+
+  <main class="export-page">
+    <div class="dash-header">
+      <h1>Export & Gestion des données</h1>
+      <p>Exportez vos données pour les analyser avec R, Python ou SPSS</p>
+    </div>
+
+    <div class="export-grid">
+
+      <div class="export-card">
+        <div class="export-icon">📄</div>
+        <h3>Export CSV</h3>
+        <p>Format tabulaire compatible avec Excel, R (<code>read.csv</code>), Python (<code>pandas</code>), SPSS.</p>
+        <div class="export-meta" id="csv-meta">0 enregistrements</div>
+        <button class="btn-primary" onclick="exportCSV()">Télécharger CSV</button>
+      </div>
+
+      <div class="export-card">
+        <div class="export-icon">{ }</div>
+        <h3>Export JSON</h3>
+        <p>Format structuré pour les APIs, applications web et traitement Python.</p>
+        <div class="export-meta" id="json-meta">0 enregistrements</div>
+        <button class="btn-primary" onclick="exportJSON()">Télécharger JSON</button>
+      </div>
+
+      <div class="export-card">
+        <div class="export-icon">🖨</div>
+        <h3>Rapport PDF</h3>
+        <p>Rapport statistique formaté prêt à l'impression ou au partage par email.</p>
+        <div class="export-meta">Statistiques descriptives</div>
+        <button class="btn-primary" onclick="window.print()">Imprimer / PDF</button>
+      </div>
+
+    </div>
+
+    <!-- STATS SUMMARY -->
+    <div class="stats-summary" id="stats-summary">
+      <h2>Résumé statistique descriptif</h2>
+      <div id="stats-content"></div>
+    </div>
+
+    <!-- DANGER ZONE -->
+    <div class="danger-zone">
+      <h3>⚠ Zone de danger</h3>
+      <p>Ces actions sont irréversibles. Assurez-vous d'avoir exporté vos données avant de les supprimer.</p>
+      <button class="btn-danger" onclick="clearAllData()">Supprimer toutes les données</button>
+    </div>
+
+  </main>
+
+  <script src="js/app.js"></script>
+  <script src="js/export.js"></script>
+</body>
+</html>
